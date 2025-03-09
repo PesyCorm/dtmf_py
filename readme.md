@@ -2,6 +2,16 @@
 
 This module allows you to get a list of tone dialing packages.
 
+## Installation:
+poetry
+```commandline
+poetry add dtmf-py
+```
+pip
+```commandline
+pip install dtmf-py
+```
+
 ## Usage:
 
 ```python

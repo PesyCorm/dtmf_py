@@ -1,1 +1,1 @@
-from dtmf import DTMF
+from .dtmf import DTMF

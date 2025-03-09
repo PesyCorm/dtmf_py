@@ -3,7 +3,10 @@ name = "dtmf-py"
 version = "0.1.0"
 description = "DTMF (rfc2833) generator"
 authors = ["Dmitriy Noskov <pesycorm@yandex.ru>"]
-readme = "README.md"
+license = "MIT"
+readme = "readme.md"
+homepage = "https://github.com/PesyCorm/dtmf_py"
+repository = "https://github.com/PesyCorm/dtmf_py"
 
 [tool.poetry.dependencies]
 python = "^3.8"
