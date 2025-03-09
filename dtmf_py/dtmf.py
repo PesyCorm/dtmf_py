@@ -24,13 +24,14 @@ class DTMF:
         "Flash": 16,
     }
 
+    @classmethod
     def make_numbers_packets(
-            self,
+            cls,
             numbers: str,
             payload_type: PayloadType = PayloadType.DYNAMIC_101,
-            packets_count: int = 10
+            tone_packets_count: int = 10
     ) -> list[bytes]:
-        if packets_count < 6:
+        if tone_packets_count < 6:
             raise RuntimeError('Too few packets.')
 
         res_packets = []
@@ -40,11 +41,11 @@ class DTMF:
         for number in numbers:
             packets = []
 
-            number = self.EVENT_NUMBERS[number].to_bytes(length=1, byteorder="big")
+            number = cls.EVENT_NUMBERS[number].to_bytes(length=1, byteorder="big")
 
-            for p in range(1, packets_count):
+            for p in range(1, tone_packets_count):
                 event_duration = p * 160
-                if p > packets_count-3:  # end event
+                if p > tone_packets_count-3:  # end event
                     dtmf_payload = (
                         number
                         + (0b10001010).to_bytes(length=1, byteorder="big")
